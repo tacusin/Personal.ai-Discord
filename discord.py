@@ -34,10 +34,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Retrieving environment variables
-bot_token = os.getenv('BOT_TOKEN')
-api_key = os.getenv('API_KEY')
+bot_token = os.environ['BOT_TOKEN']
+api_key = os.environ['API_KEY']
 base_url = os.getenv('BASE_URL', 'https://api.personal.ai/v1/message')
 memory_api_url = os.getenv('MEMORY_API_URL', 'https://api.personal.ai/v1/memory')
+domain_name = os.environ['DOMAIN_NAME']
 
 # Setting up logging
 logging.basicConfig(level=logging.INFO)
@@ -55,7 +56,8 @@ def get_ai_response(message):
     }
 
     message_data = {
-        'Text': str(message)
+        'Text': str(message).replace('"','\\"').replace('\n',' '), 
+      "DomainName": domain_name
     }
 
     try:
@@ -78,9 +80,10 @@ def upload_memory(text, source_name, device_name="API", created_time=None):
     }
 
     payload = {
-        "Text": text,
+        "Text": text.replace('"','\\"').replace('\n',' '),
         "SourceName": source_name,
         "DeviceName": device_name,
+      "DomainName": domain_name,
         "CreatedTime": created_time if created_time else None,
     }
 
@@ -104,7 +107,8 @@ async def on_ready():
 async def on_message(message):
     global message_memory
 
-    if message.author == client.user:
+    # Check if the message is from the bot or not in the desired channel
+    if message.author == client.user or message.channel.name !='ai-chat':
         return
 
     content = message.content.strip()
