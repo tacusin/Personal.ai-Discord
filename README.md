@@ -18,13 +18,14 @@ This Discord bot interacts with an AI service to generate responses and upload m
 2. Click the `Create Repl` Button
 3. Click the `Import from GitHub` Button
 4. In the URL box paste `https://github.com/tacusin/Personal.ai-Discord`
-5. Set up your secrets in the Secrets Panel:
+5. After it finishes importing set discord.py as your entry point and click done.
+6. Set up your secrets in the Secrets Panel: They should import on their own but if they don't you can use the JSON as the end of this readme
    - `API_KEY` - API key for the AI service and memory API
    - `BOT_TOKEN` - Token for your Discord bot
    - `BASE_URL` - Base URL for the AI service API (Set it to 'https://api.personal.ai/v1/message')
    - `DOMAIN_NAME` - can be left blank for your main AI, or set up for a Sub-AI - ex. DomainName is "ai-climbing" for the profile URL of ai-climbing.personal.ai
    - `MEMORY_API_URL` - URL for the memory API (Set it to 'https://api.personal.ai/v1/memory')
-6. Run the bot after setting discord.py as your entry point.
+7. Once you click RUN for the first time it should import and install all the dependencies needed for you.
 
 ## Usage
 
@@ -40,3 +41,12 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## License
 
 OPEN SOURCE 4 LIFE
+
+JSON for secrets:
+{
+  "BASE_URL": "https://api.personal.ai/v1/message",
+  "MEMORY_API_URL": "https://api.personal.ai/v1/memory",
+  "API_KEY": "YOU PERSONAL AI API HERE",
+  "BOT_TOKEN": "YOUR DISCORD BOT TOKEN HERE",
+  "DOMAIN_NAME": " "
+}
