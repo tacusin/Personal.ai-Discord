@@ -57,7 +57,7 @@ def get_ai_response(message):
 
     message_data = {
         'Text': str(message).replace('"','\\"').replace('\n',' '), 
-      "DomainName": domain_name
+        "DomainName": domain_name
     }
 
     try:
@@ -83,7 +83,7 @@ def upload_memory(text, source_name, device_name="API", created_time=None):
         "Text": text.replace('"','\\"').replace('\n',' '),
         "SourceName": source_name,
         "DeviceName": device_name,
-      "DomainName": domain_name,
+        "DomainName": domain_name,
         "CreatedTime": created_time if created_time else None,
     }
 
