@@ -43,6 +43,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 OPEN SOURCE 4 LIFE
 
 JSON for secrets:
+```json
 {
   "BASE_URL": "https://api.personal.ai/v1/message",
   "MEMORY_API_URL": "https://api.personal.ai/v1/memory",
@@ -50,3 +51,4 @@ JSON for secrets:
   "BOT_TOKEN": "YOUR DISCORD BOT TOKEN HERE",
   "DOMAIN_NAME": " "
 }
+```
