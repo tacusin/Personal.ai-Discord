@@ -10,16 +10,6 @@ This Discord bot interacts with an AI service to generate responses and uploads 
 Dependencies:
 - nextcord (Discord.py) - Library for Discord integration
 - requests - Library for making HTTP requests
-- dotenv - Library for loading environment variables
-
-Instructions:
-1. Install the required dependencies using pip: `pip install nextcord requests python-dotenv`
-2. Set up your environment variables in a .env file:
-   - BOT_TOKEN - Token for your Discord bot
-   - API_KEY - API key for the AI service and memory API
-   - BASE_URL - Base URL for the AI service API (default: 'https://api.personal.ai/v1/message')
-   - MEMORY_API_URL - URL for the memory API (default: 'https://api.personal.ai/v1/memory')
-3. Run the script: `python discord.py`
 
 """
 
@@ -29,15 +19,13 @@ import requests
 import json
 import logging
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 
 # Retrieving environment variables
 bot_token = os.environ['BOT_TOKEN']
 api_key = os.environ['API_KEY']
-base_url = os.getenv('BASE_URL', 'https://api.personal.ai/v1/message')
-memory_api_url = os.getenv('MEMORY_API_URL', 'https://api.personal.ai/v1/memory')
+base_url = os.environ['BASE_URL']
+memory_api_url = os.environ['MEMORY_API_URL']
 domain_name = os.environ['DOMAIN_NAME']
 
 # Setting up logging
