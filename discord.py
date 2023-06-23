@@ -94,7 +94,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
     global message_memory
-
+  
+    for user in message.mentions:
+      message.content = message.content.replace("<@" + str(user.id) + ">", user.name)
     # Check if the message is from the bot or not in the desired channel
     if message.author == client.user or message.channel.name !='ai-chat':
         return
